@@ -3,10 +3,13 @@
 #include <iostream>
 #include <limits>
 #include <map>
+
 //#include <stdio.h>
 #include "OrderBookEntry.h"
 #include "CSVReader.h"
 #include "OrderBook.h"
+#include "Wallet.h"
+
 
 class MerkelMain{
 
@@ -32,8 +35,10 @@ class MerkelMain{
 
         //OrderBook orderBook{ "20200317.csv" };
         
-        OrderBook orderBook{ "2020.csv" };
+        OrderBook orderBook{ "20200317.csv" };
         
+        Wallet wallet;
+
         std::vector<double> max_since_start;
         std::vector<double> min_since_start;
         std::map<std::string, int> stringToNumber;

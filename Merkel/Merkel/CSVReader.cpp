@@ -76,6 +76,20 @@ OrderBookEntry CSVReader::stringsToOBE(std::string priceString, std::string amou
 	return obe;
 }
 
+std::string CSVReader::invertPair(const std::string& originalPair)
+{
+	// Split the pair into two tokens
+	std::istringstream iss(originalPair);
+	std::string token1, token2;
+	std::getline(iss, token1, '/');
+	std::getline(iss, token2);
+
+	// Create the inverted pair
+	std::string invertedPair = token2 + '/' + token1;
+
+	return invertedPair;
+}
+
 OrderBookEntry CSVReader::stringsToOBE(std::vector<std::string> tokens)
 {
 	if (tokens.size() != 5) {
@@ -104,4 +118,3 @@ OrderBookEntry CSVReader::stringsToOBE(std::vector<std::string> tokens)
 	OrderBookEntry obe{price, amount, timestamp, product, ordertype};
 	return obe;
 }
-

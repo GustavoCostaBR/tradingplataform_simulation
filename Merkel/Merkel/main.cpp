@@ -76,6 +76,15 @@ int main(int argc, char **argv)
         
         MerkelMain app{};
         app.init();
+    //Wallet wallet;
+    /*wallet.insertCurrency("BTC", 50.0);
+    wallet.insertCurrency("USDT", 10.0);
+    std::cout << wallet.toString() << std::endl;
+    wallet.removeCurrency("USDT", 5.0);
+    wallet.removeCurrency("BTC", 55.0);
+    std::cout << "Wallet has BTC " << wallet.containsCurrency("BTC", 10.0) << std::endl;
+    std::cout << wallet.toString() << std::endl;*/
+
 
     
 
