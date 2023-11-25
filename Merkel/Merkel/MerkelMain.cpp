@@ -13,45 +13,45 @@ void MerkelMain::init(){
        
     currentTime = orderBook.getEarliestTime();
     
-    P_wallet();
+    //P_wallet();
     wallet.insertCurrency("BTC", 10.0);
-    wallet.insertCurrency("ETH", 20.0);
-    P_wallet();
-    wallet.insertCurrency("BTC", 10.0);
-    P_wallet();
-    try {
-        wallet.insertCurrency("ETH", -20.0);
-    }
-    catch (const std::runtime_error& e) {
-        // Catch the exception and print the custom message
-        std::cerr << "Caught exception: " << e.what() << std::endl;
-    }
-    P_wallet();
-    wallet.removeCurrency("BTC", 30.00);
-    P_wallet();
-    wallet.removeCurrency("BTC", 20.00);
-    P_wallet();
-    try {
-        wallet.removeCurrency("ETH", -20.0);
-    }
-    catch (const std::runtime_error& e) {
-        // Catch the exception and print the custom message
-        std::cerr << "Caught exception: " << e.what() << std::endl;
-    }
-    P_wallet();
-    wallet.containsCurrency("ETH", 10.00);
-    P_wallet();
-    wallet.containsCurrency("ETH", 30.00);
-    P_wallet();
+    //wallet.insertCurrency("ETH", 20.0);
+    //P_wallet();
+    //wallet.insertCurrency("BTC", 10.0);
+    //P_wallet();
+    //try {
+    //    wallet.insertCurrency("ETH", -20.0);
+    //}
+    //catch (const std::runtime_error& e) {
+    //    // Catch the exception and print the custom message
+    //    std::cerr << "Caught exception: " << e.what() << std::endl;
+    //}
+    //P_wallet();
+    //wallet.removeCurrency("BTC", 30.00);
+    //P_wallet();
+    //wallet.removeCurrency("BTC", 20.00);
+    //P_wallet();
+    //try {
+    //    wallet.removeCurrency("ETH", -20.0);
+    //}
+    //catch (const std::runtime_error& e) {
+    //    // Catch the exception and print the custom message
+    //    std::cerr << "Caught exception: " << e.what() << std::endl;
+    //}
+    //P_wallet();
+    //wallet.containsCurrency("ETH", 10.00);
+    //P_wallet();
+    //wallet.containsCurrency("ETH", 30.00);
+    //P_wallet();
     
     
-    /*P_stats(0);
+    P_stats(0);
     while (true)
     {
         menu_printing();
         user_option = user_input();
         verifying_option(user_option);
-    }*/
+    }
 }
 
     // std::cout << "The average price is: " << computeAveragePrice(Orders) << std::endl;
@@ -241,6 +241,7 @@ void MerkelMain::P_ask()
             try {
                 std::cout << "came so far 0" << std::endl;
                 OrderBookEntry obe = CSVReader::stringsToOBE(tokens[1], tokens[2], currentTime, tokens[0], OrderBookType::ask);
+                obe.username = "simuser";
                 std::cout << "came so far 1" << std::endl;
                 if (wallet.canFulfillOrder(obe)) {
                     std::cout << "Wallet looks good. " << std::endl;
@@ -259,16 +260,17 @@ void MerkelMain::P_ask()
         else if (result2 != stringToNumber.end()) {
 
             try {
-                std::cout << "came so far 0" << std::endl;
+                //std::cout << "came so far 0" << std::endl;
                 std::string temporaryPrice = std::to_string(1.0 / (std::stod(tokens[1])));
                 std::string temporaryAmount = std::to_string((std::stod(tokens[1]) * std::stod(tokens[2])));
 
                 OrderBookEntry obe = CSVReader::stringsToOBE(temporaryPrice, temporaryAmount, currentTime, invertedToken, OrderBookType::bid);
-                std::cout << "came so far 1" << std::endl;
+                obe.username = "simuser";
+                //std::cout << "came so far 1" << std::endl;
                 if (wallet.canFulfillOrder(obe)) {
                     std::cout << "Wallet looks good. " << std::endl;
                     orderBook.insertNewOrder(obe);
-                    std::cout << "came so far 2" << std::endl;
+                    //std::cout << "came so far 2" << std::endl;
                 }
                 else {
                     std::cout << "Wallet has insuficient funds. " << std::endl;
@@ -281,7 +283,7 @@ void MerkelMain::P_ask()
 
         }
         else {
-            std::cout << "came so far 0" << std::endl;
+            //std::cout << "came so far 0" << std::endl;
             std::cout << "MerkelMain::P_ask Bad input for product! " << std::endl;
         }
         }
@@ -311,11 +313,12 @@ void MerkelMain::P_bid()
         if (result != stringToNumber.end()) {
             try {
                 OrderBookEntry obe = CSVReader::stringsToOBE(tokens[1], tokens[2], currentTime, tokens[0], OrderBookType::bid);
-                orderBook.insertNewOrder(obe);
+                obe.username = "simuser";
+                
                 if (wallet.canFulfillOrder(obe)) {
                     std::cout << "Wallet looks good. " << std::endl;
                     orderBook.insertNewOrder(obe);
-                    std::cout << "came so far 2" << std::endl;
+                    //std::cout << "came so far 2" << std::endl;
                 }
                 else {
                     std::cout << "Wallet has insuficient funds. " << std::endl;
@@ -329,16 +332,17 @@ void MerkelMain::P_bid()
         else if (result2 != stringToNumber.end()) {
 
             try {
-                std::cout << "came so far 0" << std::endl;
+                //std::cout << "came so far 0" << std::endl;
                 std::string temporaryPrice = std::to_string(1.0 / (std::stod(tokens[1])));
                 std::string temporaryAmount = std::to_string((std::stod(tokens[1]) * std::stod(tokens[2])));
 
                 OrderBookEntry obe = CSVReader::stringsToOBE(temporaryPrice, temporaryAmount, currentTime, invertedToken, OrderBookType::ask);
-                std::cout << "came so far 1" << std::endl;
+                obe.username = "simuser";
+                //std::cout << "came so far 1" << std::endl;
                 if (wallet.canFulfillOrder(obe)) {
                     std::cout << "Wallet looks good. " << std::endl;
                     orderBook.insertNewOrder(obe);
-                    std::cout << "came so far 2" << std::endl;
+                    //std::cout << "came so far 2" << std::endl;
                 }
                 else {
                     std::cout << "Wallet has insuficient funds. " << std::endl;
@@ -371,9 +375,14 @@ void MerkelMain::go_to_next_frame()
     
     std::cout << "Number of Sales: " << sales.size() << std::endl;
 
-    for (const OrderBookEntry& sale : sales) {
+    for (OrderBookEntry& sale : sales) {
        
         std::cout << "Sale price: " << sale.price << "; Amount: " << sale.amount << std::endl;
+        if (sale.username == "simuser") {
+            //update the wallet
+            wallet.processSale(sale);
+        }
+
     }
 
     currentTime = orderBook.getNextTime(currentTime);

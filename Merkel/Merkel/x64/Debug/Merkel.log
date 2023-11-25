@@ -1,10 +1,7 @@
 ﻿  MerkelMain.cpp
-I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(12,9): warning C4101: 'user_option': unreferenced local variable
 I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(86,34): warning C4101: 'e': unreferenced local variable
-I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(254,42): warning C4101: 'e': unreferenced local variable
-I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(278,42): warning C4101: 'e': unreferenced local variable
-I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(324,42): warning C4101: 'e': unreferenced local variable
-I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(348,42): warning C4101: 'e': unreferenced local variable
-  Wallet.cpp
-  Generating Code...
+I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(255,42): warning C4101: 'e': unreferenced local variable
+I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(280,42): warning C4101: 'e': unreferenced local variable
+I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(327,42): warning C4101: 'e': unreferenced local variable
+I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\Merkel\MerkelMain.cpp(352,42): warning C4101: 'e': unreferenced local variable
   Merkel.vcxproj -> I:\network_share\build_machine\Gustavo\C++_ONLY_COURSERA\Projeto\Merkel\x64\Debug\Merkel.exe

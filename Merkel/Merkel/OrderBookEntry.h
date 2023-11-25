@@ -8,7 +8,8 @@ enum class OrderBookType
 {
     bid,
     ask,
-    sale,
+    bidsale,
+    asksale,
     unknown
 };
 
@@ -21,6 +22,7 @@ public:
     std::string timestamp;
     std::string product;
     OrderBookType orderType;
+    std::string username;
 
     static bool compareOrderTimestamp(OrderBookEntry& e1, OrderBookEntry& e2);
 
@@ -32,7 +34,8 @@ public:
                    double amount,
                    std::string timestamp,
                    std::string product,
-                   OrderBookType orderType);
+                   OrderBookType orderType,
+                   std::string username = "dataset");
     static OrderBookType stringToOBT(std::string s);
 };
     
